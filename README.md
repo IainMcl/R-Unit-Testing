@@ -10,8 +10,8 @@ package using ```install.packages("testthat")```.
 
 For instructions on how to setup an R package following the instructions [here](https://tinyheero.github.io/jekyll/update/2015/07/26/making-your-first-R-package.html) is a good start.
 From this guide there are a few dependancies:
-- devtools *for package related functions*
-- roxygen *to generate documentation (optional)*
+- devtools - *for package related functions*
+- roxygen - *to generate documentation (optional)*
 
 On top of this when working within a package it is easier to add tests and set up a test directory using `usethis`.
 - usethis 
