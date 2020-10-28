@@ -19,7 +19,7 @@ On top of this when working within a package it is easier to add tests and set u
 cd into your package where all of your R scripts should be contained with in a sub directory called `R`. Making use
 of `usethis` you can set up our test directory structure. 
 ```
-usethig::use_testthat()
+usethis::use_testthat()
 ```
 
 This will create a new folter called `tests` which will contain the file `testthat.R` and the directory `testthat`.
