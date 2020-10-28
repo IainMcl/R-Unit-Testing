@@ -1,0 +1,16 @@
+Package: PackageTest
+Title: Package unit testing
+Version: 0.1.0
+Authors@R:
+    person(given = "Iain",
+           family = "McLaughlan",
+           role = c("aut", "cre"),
+           email = "iain.mclaughlan@phs.scot")
+Description: Gives an example of how to setup and perform unit tests within an R package.
+License: `use_mit_license()`
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Suggests: 
+    testthat
