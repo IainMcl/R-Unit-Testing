@@ -73,3 +73,45 @@ test_that("Test the add function for two integers", {
 })
 ```
 
+### Note
+
+Note: due to the way that R packages usually work this method of `use_test()` to create tests this will not work
+in folders with sub-directories `./R/<SUB-DIR>`. This can be seen in the folder `./R/SubFolder/`.
+
+## Testing a directory
+
+Not all R code is writen within an R package, however, these tools apear to mainly have been developed with working 
+in a package in mind. Therefore setting up your tests is a little less straigh forward but you can still use some 
+of the tools used when working within a package.
+
+To keep your code clean storing your source code within an `R` folder and tests in a `tests` folder makes sense.
+You will need to make these folders manually and keep a track of new files and test coverage by yourself.
+Below is an example of making these files and directories. To keep convention you may wish to use the same names
+as if you were working in a package however these can be anything that you like.
+```
+mkdir R tests
+cd tests
+mkdir testthat
+touch testthat.R
+```
+Inside the file `testthat.R` is where we can add the code to run all of the tests. Since this is just a normal
+R file you can add any other code in here that you want to be run for each test.
+Again to replicate what would be in a package we can use `testthat::test_dir()` to run all tests that are contained
+witin the `testthat` directory. An example of a `testthat.R` file that would do this could be
+```
+library(testthat)
+
+testthat::test_dir(path="tests/testthat", reporter = "summary")
+```
+**Note**: Since this is not a package you will need to choose where you will be running your tests from. With 
+the path shown it is assumed you will be running from the project root directory i.e. the one containing the `R` 
+and `tests` folders. Use `getwd()` to find which directory you are currently in.
+
+Running the file `testthat.R` will run all of the files within `./tests/testthat` that start `test-<FILE NAME>`.
+This can be seen as there are two files in `./tests/testthat`, `file.R` and `test-file.R`. When you run the file 
+`./tests/testthat.R` you will see that only one of the files has been run; the one starting `test-`. 
+
+Here we have chosen to use `reporter = "summary"` within the `test_dir` call. This gives a bit more detal on 
+what tests have failed. There are other options such as "minimal" which will give green and red dots signifying
+if a test has passed or failed giving a cleaner if not less informative output.
+
