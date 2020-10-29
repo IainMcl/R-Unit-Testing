@@ -3,7 +3,7 @@
 There are two main ways to run unit tests in R. One of these if within an R Package and the other is to just
 test functions. 
 
-For this demonstration you will use the functionality provided in `testthat`. This can be installed like with any
+For this demonstration you will use the functionality provided in [`testthat`](https://r-pkgs.org/tests.html). This can be installed like with any
 package using ```install.packages("testthat")```.
 
 ## Testing an R Package
