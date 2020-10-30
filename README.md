@@ -115,3 +115,43 @@ Here we have chosen to use `reporter = "summary"` within the `test_dir` call. Th
 what tests have failed. There are other options such as "minimal" which will give green and red dots signifying
 if a test has passed or failed giving a cleaner if not less informative output.
 
+In the `R` directory again we have the file `add_function.R`. To be able to access this file within our test 
+directory it will need to be sourced to access the files contents. Adding a file called `test-add_function.R` add
+```
+source("./../../R/add_function", chdir = TRUE) 
+```
+This line of sourcing goes up to `tests`, up to `PackageTest`, then into `R`, and can access the file. Setting `chrid = TRUE` allows for the file to be sourced relative to the file where the source is being called. Without `chdir = TRUE` the run directory can be a little more complicated.
+
+## Writing Tests
+
+To better understand which tests are being run a `context(<str:TESTS-DESCTIPTION>)` which describes the tests that are going to be run in the file.
+
+## Possible issues
+
+### Conflict warnings
+
+```
+Warning message:
+
+-- Conflicts ------------------------------------------ PackageTest conflicts --
+x add() masks PackageTest::add()
+
+Did you accidentally source a file rather than using `load_all()`?
+Run `rm(list = c("add"))` to remove the conflicts. 
+```
+Having an uncleaned environment can result in conflicts. If this occurs just clean the environment and run again.
+
+### Could not find function `use_test`
+
+```Error in use_test() : could not find function "use_test"```
+Importing the `usethis` library, `library(usethis)` will alow the use of the `use_test` function.
+
+### Not inside a package
+
+```
+> devtools::test()
+Error: Could not find package root, is your working directory inside a package?
+```
+As the name suggests if you are not in a package you can't use `devtools::test()`. If you want to work in a package 
+using the instructions [here](https://tinyheero.github.io/jekyll/update/2015/07/26/making-your-first-R-package.html)
+may be useful. If you are intending on not working in a package the following the instructions [above](#Testing-a-directory).
