@@ -154,4 +154,4 @@ Error: Could not find package root, is your working directory inside a package?
 ```
 As the name suggests if you are not in a package you can't use `devtools::test()`. If you want to work in a package 
 using the instructions [here](https://tinyheero.github.io/jekyll/update/2015/07/26/making-your-first-R-package.html)
-may be useful. If you are intending on not working in a package the following the instructions [above](#Testing-a-directory).
+may be useful. If you are intending on not working in a package the following the instructions [above](#testing-a-directory).
