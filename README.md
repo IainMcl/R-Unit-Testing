@@ -126,6 +126,31 @@ This line of sourcing goes up to `tests`, up to `PackageTest`, then into `R`, an
 
 To better understand which tests are being run a `context(<str:TESTS-DESCTIPTION>)` which describes the tests that are going to be run in the file.
 
+Depending on your program structure you should think about how you want your test to be layed out. It is often a good
+idea to have your tests follow the same structure as your source code. This means that it could be a good idea to have
+one test file per source file. Obveously if your files are very large and contain a lot of functionality it may be 
+better to split the test files to cover specific sections of each file. In this case using `use_test` as described may
+need to be suplimented with more test files. In this case using `use_test("<NAME>")` a new test file will be created in 
+`./tests/testthat` called `test-<NAME>.R` ready to edit.
+
+### Expect statments
+
+There are many different `expect` statments that can be used in `testthat`. To see the possibilities in R Studio, in
+the console type `expect_` and a list of possible auto-fills should pop up. If this dosen't happen or you click away
+hit `CTRL+SPACE` to bring up the autofill suggestions. Some of the most common statments include
+
+```
+expect_equal(object, expected) # Tests that an object returns the expected value
+expect_gt(object, expected) # Check that the object produeces and output greather than the expected value
+expect_error(object) # Check that the code throws an error
+```
+
+A full list with documentation can be found in the `testthat` package documentation.
+
+### Writing `test_that` functions
+
+TODO
+
 ## Possible issues
 
 ### Conflict warnings
