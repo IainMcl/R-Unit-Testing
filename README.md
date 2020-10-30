@@ -1,7 +1,3 @@
-<!-- badges: start -->
-[![R build status](https://github.com/IainMcl/R-Unit-Testing/workflows/R-CMD-check/badge.svg)](https://github.com/IainMcl/R-Unit-Testing/actions)
-<!-- badges: end -->
-
 # Unit testing in R
 
 There are two main ways to run unit tests in R. One of these if within an R Package and the other is to just
