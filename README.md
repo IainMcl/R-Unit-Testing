@@ -6,7 +6,12 @@ test functions.
 For this demonstration you will use the functionality provided in [`testthat`](https://r-pkgs.org/tests.html). This can be installed like with any
 package using ```install.packages("testthat")```.
 
-## Testing an R Package
+- [Testing an R package](#testing-an-r-package)
+- [Testing a directory](#testing-a-directory) 
+- [Writing Tests](#writing-tests)
+- [Possible issues](#possible-issues)
+
+## Testing an R package
 
 For instructions on how to setup an R package following the instructions [here](https://tinyheero.github.io/jekyll/update/2015/07/26/making-your-first-R-package.html) is a good start.
 From this guide there are a few dependancies:
