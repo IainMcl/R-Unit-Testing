@@ -108,6 +108,15 @@ library(testthat)
 
 testthat::test_dir(path="tests/testthat", reporter = "summary")
 ```
+### Running tests
+
+This can be done in two main ways depending on how you work best. If you mainly work within RStudio then just running
+the contencts of the file `./tests/testthat.R` is probably the easiest option. If, however, you work mainly in the 
+terminal then setting up a file like `runtests.sh` could be a good idea. If you are working in Windows CMD or Windows
+terminal then having a file like `runtests.bat` will work. For both of these terminal approaches you will need to have
+`Rscript` in your system path. In my setup on Windows this binary is in `C:\Program Files\R\R-3.5.2\bin` and has been
+added to by system path.
+
 **Note**: Since this is not a package you will need to choose where you will be running your tests from. With 
 the path shown it is assumed you will be running from the project root directory i.e. the one containing the `R` 
 and `tests` folders. Use `getwd()` to find which directory you are currently in.
