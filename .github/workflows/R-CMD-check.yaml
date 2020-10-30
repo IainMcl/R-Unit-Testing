@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - master
+      - Home
   pull_request:
     branches:
       - main
