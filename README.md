@@ -14,7 +14,7 @@ package using `install.packages("testthat")`.
   - [Running directory tests](#running-directory-tests)
 - [Writing Tests](#writing-tests)
   - [Expect statments](#expect-statments)
-  - [Writing test_that functions](#writing-testthat-functions)
+  - [Writing test_that functions](#writing-test_that-functions)
 - [Possible issues](#possible-issues)
 
 ## Testing an R package
