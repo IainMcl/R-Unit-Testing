@@ -1,2 +1,3 @@
 ^PackageTest\.Rproj$
 ^\.Rproj\.user$
+^codecov\.yml$
