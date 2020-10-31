@@ -7,8 +7,14 @@ For this demonstration you will use the functionality provided in [`testthat`](h
 package using ```install.packages("testthat")```.
 
 - [Testing an R package](#testing-an-r-package)
+  * [Adding tests](#adding-tests)
+  * [Running tests](#running-tests)
+  * [Note](#note)
 - [Testing a directory](#testing-a-directory) 
+  * [Running tests](#running-tests-dir)
 - [Writing Tests](#writing-tests)
+  * [Expect statments](#expect-statments)
+  * [Writing `test_that` functions](#testthat-functions)
 - [Possible issues](#possible-issues)
 
 ## Testing an R package
@@ -108,7 +114,7 @@ library(testthat)
 
 testthat::test_dir(path="tests/testthat", reporter = "summary")
 ```
-### Running tests
+### Running tests (#runint-tests-dir)
 
 This can be done in two main ways depending on how you work best. If you mainly work within RStudio then just running
 the contencts of the file `./tests/testthat.R` is probably the easiest option. If, however, you work mainly in the 
@@ -161,7 +167,7 @@ expect_error(object) # Check that the code throws an error
 
 A full list with documentation can be found in the `testthat` package documentation.
 
-### Writing `test_that` functions
+### Writing `test_that` functions (#testthat-functions)
 
 TODO
 
