@@ -15,7 +15,9 @@ package using `install.packages("testthat")`.
 - [Writing Tests](#writing-tests)
   - [Expect statments](#expect-statments)
   - [Writing test_that functions](#writing-test_that-functions)
+- [Test coverage](#test-coverage)
 - [Possible issues](#possible-issues)
+
 
 ## Testing an R package
 
@@ -188,6 +190,38 @@ A full list with documentation can be found in the `testthat` package documentat
 
 TODO
 
+## Test coverage
+
+To ensure that your code is properly tested you can check the test coverage. Rather than going through
+each of your tests to see if what they match up with there are very fortunatly tools to help, well at least
+if you are using a package.
+
+Here we use [`covr`](https://github.com/r-lib/covr) which checks through our source functions and looks
+for a matching test to each return point within funciton. 
+
+```
+install.packages(covr)
+```
+
+To set up `covr` within the package you can again make use of `usethis`. 
+
+```
+usethis::use_coverage()
+```
+
+This will create a `codecov.yml` file which can be used to set acceptable test coverage thresholds. 
+This would normally only really be worried about in large projects, but, more comprehensive documentation
+can be found at the [`covr` github](https://github.com/r-lib/covr).
+
+There are several ways to check the coverage. One simple way is to use `report()`. 
+
+```
+library(covr)
+report()
+```
+
+The report function will open up a file in the RStudio viewer where you can see the coverage of each file
+and the overall package. 
 ## Possible issues
 
 ### Conflict warnings
