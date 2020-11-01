@@ -13,6 +13,6 @@ multiply_by_2_if_even <- function(value){
   if(value %% 2 == 0){
     return(value * 2)
   }else{
-    return(value)
+    return(value) # nocov
   }
 }
