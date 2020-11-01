@@ -18,7 +18,6 @@ package using `install.packages("testthat")`.
 - [Test coverage](#test-coverage)
 - [Possible issues](#possible-issues)
 
-
 ## Testing an R package
 
 For instructions on how to setup an R package following the instructions [here](https://tinyheero.github.io/jekyll/update/2015/07/26/making-your-first-R-package.html) is a good start.
@@ -197,23 +196,23 @@ each of your tests to see if what they match up with there are very fortunatly t
 if you are using a package.
 
 Here we use [`covr`](https://github.com/r-lib/covr) which checks through our source functions and looks
-for a matching test to each return point within funciton. 
+for a matching test to each return point within funciton.
 
 ```
 install.packages(covr)
 ```
 
-To set up `covr` within the package you can again make use of `usethis`. 
+To set up `covr` within the package you can again make use of `usethis`.
 
 ```
 usethis::use_coverage()
 ```
 
-This will create a `codecov.yml` file which can be used to set acceptable test coverage thresholds. 
+This will create a `codecov.yml` file which can be used to set acceptable test coverage thresholds.
 This would normally only really be worried about in large projects, but, more comprehensive documentation
 can be found at the [`covr` github](https://github.com/r-lib/covr).
 
-There are several ways to check the coverage. One simple way is to use `report()`. 
+There are several ways to check the coverage. One simple way is to use `report()`.
 
 ```
 library(covr)
@@ -221,7 +220,34 @@ report()
 ```
 
 The report function will open up a file in the RStudio viewer where you can see the coverage of each file
-and the overall package. 
+and the overall package.
+
+![Test coverage viewer output](README.assets/covr_viewer.PNG)
+
+If all of the function returns within the source code have a corresponding test then the coverage will be 100%. If however one or more are not covered then you will show which file is missing test coverage. By selectin the file name you will be taken to the file and shown where the tests you have cover and where they are missing.
+
+![Incomplete test coverage](README.assets/incomplete_test_coverage.PNG)
+
+With this information you can decide if that section needs to be tested and if so write a test to cover that output.
+
+`Covr` has a fearure that if you decide that an output does not need to be tested then you can add `# nocov` on the line that returns the output and it will be skipped by the `covr` report.
+
+```
+...
+else{
+  return(value) # nocov
+}
+...
+```
+
+And similarly if there is a full block you wish to be skipped over
+
+```
+f2 <- function(x) { # nocov start
+  x + 2
+} # nocov end
+```
+
 ## Possible issues
 
 ### Conflict warnings
